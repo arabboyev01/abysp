@@ -38,7 +38,6 @@ const Draggable: React.FC<ReactChildrenProps> = ({children}) => {
 
     }, [dragOffset]);
 
-    console.log(zoom)
     return (
         <div
             ref={draggableRef}

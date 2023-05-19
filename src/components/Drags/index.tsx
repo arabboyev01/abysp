@@ -1,11 +1,11 @@
-import DumbDrugs from './DumbDrugs'
 import Draggable from './Dragging'
+import ToDoList from '../ToDoList'
 
 const Drags = () => {
 
     return (
         <Draggable>
-            <DumbDrugs/>
+            <ToDoList />
         </Draggable>
     )
 }
