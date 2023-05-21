@@ -49,7 +49,6 @@ const Draggable: React.FC<ReactChildrenProps> = ({children}) => {
                 transform: `scale(${zoom})`
             }}
             onMouseDown={(e) => {
-                e.preventDefault();
                 e.stopPropagation();
                 isDragging.current = true;
                 initialPosition.current = {x: e.clientX, y: e.clientY};
