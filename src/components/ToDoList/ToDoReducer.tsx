@@ -17,6 +17,12 @@ const ToDoReducer = (state: any, action: any) => {
             return {
                 toDoData: state.toDoData.filter((item: any) => item.id !== action.payload),
             };
+        case ActionType.EDIT_TODO:
+            return {
+                toDoData: state.toDoData.map(({id, name}:{id: number, name: string}) => {
+                    return id === action.payload.id ? action.payload.updatedTodo : name
+                })
+            }
         default:
             return state;
     }

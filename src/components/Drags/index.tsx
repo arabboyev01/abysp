@@ -1,11 +1,10 @@
 import Draggable from './Dragging'
-import ToDoList from '../ToDoList'
-
+import TreeNode from "../TreeNode"
 const Drags = () => {
 
     return (
         <Draggable>
-            <ToDoList />
+            <TreeNode />
         </Draggable>
     )
 }

@@ -19,10 +19,31 @@ export type PerProps = {
 }
 
 export type ReducerType = {
+    id?: number | any,
     setValue: any
     handleAddTodo: any
     state: any
-    name?: string
+    name?: any
     value: string
     handleDeleteTodo: (e: number) => void
+    icon?: any
+    editIndex: boolean
+    handleEditTodo: (d: number) => void
+    setEditIndex: any
+}
+
+export interface Todo {
+    id: number;
+    text: string;
+    children: Todo[];
+    handleInputChange?: any;
+    handleChildFormSubmit?: any;
+}
+
+export interface Action {
+    type: string;
+    payload?: {
+        parentId?: number;
+        newTodo?: Todo;
+    };
 }

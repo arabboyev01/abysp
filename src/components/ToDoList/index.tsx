@@ -6,6 +6,7 @@ import { ActionType } from './Actions'
 const ToDoList = () => {
     const [state, dispatch] = useReducer(ToDoReducer, initialState);
     const [value, setValue] = useState('')
+    const [editIndex, setEditIndex] = useState<boolean>(false);
 
     const handleAddTodo = () => {
         value.trim() !== '' &&
@@ -15,6 +16,12 @@ const ToDoList = () => {
     const handleDeleteTodo = (id: number) => {
         dispatch({type: ActionType.DELETE_TODO, payload: id});
     };
+
+    const handleEditTodo = (id: number) => {
+        const todoToEdit = state.toDoData.id;
+        setValue(todoToEdit);
+    };
+
     return (
         <DumbToDo
             setValue={setValue}
@@ -22,6 +29,9 @@ const ToDoList = () => {
             state={state}
             value={value}
             handleDeleteTodo={handleDeleteTodo}
+            handleEditTodo={handleEditTodo}
+            editIndex={editIndex}
+            setEditIndex={setEditIndex}
         />
     )
 }
