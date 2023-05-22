@@ -9,7 +9,6 @@ const updateChildTodos = (children: Todo[], parentId: number, newChildTodo: Todo
 }
 
 const TodoReducer = function(state: Todo[], action: Action): Todo[] {
-  console.log(action.payload!.parentId)
   switch(action.type) {
     case 'ADD_TODO':
       return [...state, action.payload!.newTodo!];
@@ -19,6 +18,8 @@ const TodoReducer = function(state: Todo[], action: Action): Todo[] {
           ? { ...todo, children: [...todo.children, action.payload!.newTodo!] }
           : { ...todo, children: updateChildTodos(todo.children, action.payload!.parentId!, action.payload!.newTodo!) }
       );
+      case "DELETE_TODO":
+            return state.filter((item: any) => item.id !== action!.payload!.parentId)
     default:
       return state;
   }

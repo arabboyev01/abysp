@@ -5,6 +5,7 @@ export const StyleTodo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  row-gap: 20px;
 `
 
 export const InoutWrap = styled.div`
@@ -12,12 +13,12 @@ export const InoutWrap = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 5px;
-  margin-top: 20px;
+  height: 150px;
 `
 
 export const IconWrapper: any = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   background: #fff;
   border-radius: 50%;
   display: flex;
@@ -34,10 +35,23 @@ export const Icon = styled.img`
 `
 
 export const MainInput: any = styled.input`
-  width: 100px;
+  width: 130px;
   height: 40px;
   border: none;
   background: #fff;
   color: #000;
-  padding-left: 20px;
+  padding-left: 10px;
+`
+
+export const CloseIcon: any = styled.img`
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  cursor: pointer;
+`
+export const EditIcons = styled.img`
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  cursor: pointer;
 `

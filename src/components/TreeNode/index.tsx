@@ -14,30 +14,28 @@ function TodoTree() {
         setNewTodo(e.target.value);
     };
 
+    const TodoItem: Todo = {
+        id: Date.now(),
+        text: newTodo,
+        children: [],
+    };
+
     const handleFormSubmit = () => {
         if (newTodo.trim()) {
-            const newTodoItem: Todo = {
-                id: Date.now(),
-                text: newTodo,
-                children: [],
-            };
-
-            dispatch({type: 'ADD_TODO', payload: {newTodo: newTodoItem}});
+            dispatch({type: 'ADD_TODO', payload: {newTodo: TodoItem}});
             setNewTodo('');
         }
     };
 
     const handleChildFormSubmit = (e: React.FormEvent<HTMLFormElement>, parentId: number) => {
-        const newChildTodo: Todo = {
-            id: Date.now(),
-            text: newTodo,
-            children: [],
-        };
 
-        dispatch({type: 'ADD_CHILD_TODO', payload: {parentId: parentId, newTodo: newChildTodo}});
+        dispatch({type: 'ADD_CHILD_TODO', payload: {parentId: parentId, newTodo: TodoItem}});
         setNewTodo('');
     };
-    // console.log(todos)
+
+    const handleDeleteItem = (id: number) => {
+        dispatch({type: 'DELETE_TODO', payload: {parentId: id}});
+    }
 
     return (
         <StyleTodo>
@@ -54,6 +52,8 @@ function TodoTree() {
                         text={text}
                         children={children}
                         handleChildFormSubmit={handleChildFormSubmit}
+                        handleInputChange={handleInputChange}
+                        handleDeleteItem={handleDeleteItem}
                     />
                 )}
             </InoutWrap>

@@ -38,6 +38,7 @@ export interface Todo {
     children: Todo[];
     handleInputChange?: any;
     handleChildFormSubmit?: any;
+    handleDeleteItem?: (e: number) => void
 }
 
 export interface Action {
